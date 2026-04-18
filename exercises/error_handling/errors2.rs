@@ -8,8 +8,9 @@
 // might have typed anything, not just numbers!
 //
 // Right now, this function isn't handling the error case at all (and isn't
-// handling the success case properly either). What we want to do is: if we call
-// the `parse` function on a string that is not a number, that function will
+// handling the success case properly either). 
+// What we want to do is: 
+// if we call the `parse` function on a string that is not a number, that function will
 // return a `ParseIntError`, and in that case, we want to immediately return
 // that error from our function and not try to multiply and add.
 //
@@ -19,14 +20,13 @@
 // Execute `rustlings hint errors2` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
 
 use std::num::ParseIntError;
 
 pub fn total_cost(item_quantity: &str) -> Result<i32, ParseIntError> {
     let processing_fee = 1;
     let cost_per_item = 5;
-    let qty = item_quantity.parse::<i32>();
+    let qty = item_quantity.parse::<i32>()?;
 
     Ok(qty * cost_per_item + processing_fee)
 }
